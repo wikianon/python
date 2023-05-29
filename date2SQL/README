@@ -1,0 +1,4 @@
+Script que procura em um arquivo uma data no formato MM-DD-YYYY ou MM/DD/YYYY,
+e cria outro arquivo com a data no formato SQL YYYY-MM-DD. 
+
+https://www.scriptbrasil.com.br/script/python/date2SQL.zip

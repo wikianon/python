@@ -1,0 +1,78 @@
+Programa para gerenciamento de banco de dados, que gera HTML's que trabalham com os dados. 
+Ele foi escrito em C, e traduzido para Python, gerando um codigo muito mais leve e simples.
+https://www.scriptbrasil.com.br/script/python/hyperschema-3.0.zip
+
+Python Hyperschema 3.0 is placed in the public domain by Randy Phillips
+(hyperschema@rebeccaphillips.com) because you will need to edit this 
+code to suit your own tastes on the HTML output.  If I release it under
+the GPL that would be a real pain in the neck, as the GPL requires that
+you giving me every single one of your code changes.  If you find a bug
+or would like to make a contribution to the code, please let me know.  
+
+Bug fixes and enhancements are most welcome!  I would like to put on the
+hyperschema web site a list of users, please let me know if you used this
+public domain source code.  Email me with any questions or comments,
+and enjoy!
+
+Many thanks to Norman Dunbar, ndunbar@lynxfinancialsystems.co.uk, who
+pointed out the reverse backslashes (now fixed) at the end of the SQL
+files, and suggested changing the SQL schema owner name to USER (done).
+Norman also provided cross-compilation advice for the C source code.
+
+The C file, hyperschema.c, is no longer maintained in favor of the
+Python version hyperschema.py, although it is included in the Hyperschema
+distribution.
+
+
+Instructions:
+
+1) Run make_dump_table.sql to create a dummy table to hold the database
+   metadata.
+
+2) Run extract_schema.sql to populate the dummy table, this may take a
+   while if you have many tables - anyone who can help tune this please try!
+   Current schema owner is USER, change as needed.
+
+3) set linesize to 300 and pages to 32000, spool on, and select * from
+   the dummy table ordering by table_name and column_id to sort the spool file.
+
+4) PYTHON: Run hyperschema.py as "hyperschema.py filename", where filename
+      is the name of the spool file.  You can test on the included example
+      file table.lst.  You can also run as "hyperschema.py" and be prompted
+      for a file name, I found this handy for developement work within IDLE.
+
+   C: Run the compiled hyperschema.c as "hyperschema filename", where filename
+      is the name of the spool file.  You can test on the included example
+      file table.lst.  Please note that after version 3.0, the C source code
+      will not be maintained in favor of Python.
+
+5) Please consider contributing to hyperschema, as Norman Dunbar has done.
+
+
+File list:
+
+SQL files used to extract database metadata:
+     make_dump_table.sql
+     extract_schema.sql
+
+Example SQL output file:
+     table.lst
+
+Hyperschema-generating python source code file:
+     hyperschema.py
+
+Hyperschema-generating C source code file (deprecated):
+     hyperschema.c
+
+Javascript library for mouseovers:
+     overlib.js
+
+GIF file for Production Support Team:
+     prodsup.gif
+
+HTML output when hyperschema is run for the example file table.lst:
+     index.html
+     ANB_CONTEXT.html
+     BNB_FUNCTION.html
+     CNB_PARTY.html
+     CNB_POSTAL_ADDRESS.html
